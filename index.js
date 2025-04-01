@@ -5,7 +5,7 @@ const app = express();
 app.get('/search', async (req, res) => {
   const query = req.query.q;
   const apiKey = process.env.YOUTUBE_API_KEY;
-  const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}&type=video&maxResults=10&relevanceLanguage=ja&key=${apiKey}`;
+  const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}&type=video&maxResults=50&relevanceLanguage=ja&key=${apiKey}`;
   try {
     const response = await axios.get(url);
     const results = response.data.items.map(item => ({
