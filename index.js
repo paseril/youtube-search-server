@@ -4,7 +4,7 @@ const app = express();
 
 app.get('/search', async (req, res) => {
   const query = req.query.q;
-  const apiKey = 'process.env.YOUTUBE_API_KEY'; // 後で置き換える
+  const apiKey = process.env.YOUTUBE_API_KEY; // 置き換え済み
   const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}&type=video&maxResults=5&key=${apiKey}`;
   try {
     const response = await axios.get(url);
